@@ -23,7 +23,8 @@ export default {
   ** Global CSS
   */
   css: [
-    '@vuecommerce/ui/dist/css/reset.css'
+    '@vuecommerce/ui/dist/css/reset.css',
+    '@vuecommerce/ui/dist/js/ui.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -33,7 +34,10 @@ export default {
   /*
   ** Nuxt.js dev-modules
   */
-  buildModules: ['@nuxt/typescript-build'],
+  buildModules: [
+    '@nuxt/typescript-build',
+    '@nuxtjs/tailwindcss',
+  ],
   /*
   ** Nuxt.js modules
   */
@@ -47,6 +51,6 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
-    }
+    },
   }
 }

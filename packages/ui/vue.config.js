@@ -6,6 +6,6 @@ module.exports = {
         @import "~@/styles/variables";
         @import "~@/styles/mixins";`
       },
-    }
-  }
+    },
+  },
 }

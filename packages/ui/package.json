@@ -10,6 +10,7 @@
   "files": [
     "dist"
   ],
+  "web": "dist/js/ui.umd.js",
   "main": "dist/js/ui.common.js",
   "types": "src/types.d.ts",
   "dependencies": {

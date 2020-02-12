@@ -1,3 +1,1 @@
-export {
-  VcContainer
-} from './index'
+export * from './index'
