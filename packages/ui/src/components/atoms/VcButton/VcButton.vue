@@ -1,17 +1,35 @@
 <template>
-  <button class="vc-button">
-    {{ title }}
+  <button :class="cssClasses">
     <slot />
   </button>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator"
+import Vue from "vue"
 
-@Component
-export default class Button extends Vue {
-  @Prop() private title!: string;
-}
+export default Vue.extend({
+  name: 'VcButton',
+  props: {
+    variant: String,
+    outline: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    cssClasses() {
+      const modifierClasses = []
+      if (this.variant) {
+        const variantClass = this.outline ? `vc-button--outline-${this.variant}` : `vc-button--${this.variant}`
+        modifierClasses.push(variantClass)
+      }
+      return [
+        'vc-button',
+        ...modifierClasses
+      ]
+    },
+  },
+})
 </script>
 
 <style lang="scss" src="./VcButton.scss" />
