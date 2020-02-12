@@ -1,0 +1,6 @@
+@import "./scss/mixins";
+
+.vc-button {
+  display: inline-block;
+  @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
+}
