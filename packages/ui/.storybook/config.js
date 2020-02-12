@@ -1,7 +1,8 @@
-import { configure } from '@storybook/vue';
+import { configure } from '@storybook/vue'
+import '!style-loader!css-loader!sass-loader!../src/styles/reset.scss'
 
-const req = require.context('../src', true, /.stories.ts$/);
+const req = require.context('../src', true, /.stories.ts$/)
 function loadStories() {
-  req.keys().forEach(filename => req(filename));
+  req.keys().forEach(filename => req(filename))
 }
-configure(loadStories, module);
+configure(loadStories, module)
