@@ -11,6 +11,7 @@
     "dist"
   ],
   "main": "dist/js/ui.common.js",
+  "types": "src/types.d.ts",
   "dependencies": {
     "core-js": "^3.6.4",
     "vue": "^2.6.11"
