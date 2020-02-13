@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "lerna run --parallel dev",
     "dev:frontend": "lerna exec --scope=@vuecommerce/frontend -- yarn dev",
+    "dev:ui": "lerna exec --scope=@vuecommerce/ui -- yarn dev",
     "build:ui": "lerna exec --scope=@vuecommerce/ui -- yarn build"
   },
   "devDependencies": {

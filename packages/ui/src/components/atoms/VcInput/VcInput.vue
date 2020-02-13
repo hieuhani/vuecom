@@ -39,7 +39,6 @@ export default createComponent({
 
 <style lang="scss">
 .vc-input {
-  margin-bottom: 1rem;
   &__label {
     font-weight: bold;
   }
