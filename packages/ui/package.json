@@ -2,8 +2,7 @@
   "name": "@vuecommerce/ui",
   "version": "0.0.1",
   "scripts": {
-    "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/styles/ -o dist/css/",
-    "build": "rollup -c scripts/rollup.config.js --environment BUILD:production",
+    "build": "bash scripts/build.sh",
     "dev": "vue-cli-service build --target lib --dest dist/js --watch ./src/index.ts",
     "storybook": "vue-cli-service storybook:serve"
   },

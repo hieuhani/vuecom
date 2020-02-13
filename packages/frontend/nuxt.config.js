@@ -23,6 +23,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '@vuecommerce/ui/dist/css-reset.css',
     '@vuecommerce/ui/dist/vuecommerce-ui.css'
   ],
   /*
