@@ -11,7 +11,7 @@ const components = [
 const Vuecommerce = {
   install(Vue: any, options: any = {}) {
     ;(options.components || components).forEach((component: any) => {
-      Vue.component(component.extendOptions.name, component)
+      Vue.component(component.name, component)
     })
   },
 }

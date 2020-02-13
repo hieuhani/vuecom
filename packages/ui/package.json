@@ -17,6 +17,7 @@
   ],
   "types": "src/types.d.ts",
   "dependencies": {
+    "@vue/composition-api": "^0.3.4",
     "core-js": "^3.6.4",
     "vue": "^2.6.11"
   },

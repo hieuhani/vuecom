@@ -5,8 +5,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+import { createComponent } from '@vue/composition-api'
+
+export default createComponent({
   name: 'VcContainer',
   props: {
     fluid: {

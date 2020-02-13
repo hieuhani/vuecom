@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import { createComponent } from '@vue/composition-api'
 
-export default Vue.extend({
+export default createComponent({
   name: 'VcButton',
   props: {
     variant: String,

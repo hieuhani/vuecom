@@ -1,7 +1,9 @@
 <template>
   <div>
     <vc-container>
-      <vc-button variant="primary">Hello world</vc-button>
+      <nuxt-link to="/auth/sign_in">
+        <vc-button variant="primary">Sign in</vc-button>
+      </nuxt-link>
     </vc-container>
   </div>
 </template>
