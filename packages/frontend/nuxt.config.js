@@ -23,8 +23,7 @@ export default {
   ** Global CSS
   */
   css: [
-    '@vuecommerce/ui/dist/css/reset.css',
-    '@vuecommerce/ui/dist/js/ui.css'
+    '@vuecommerce/ui/dist/vuecommerce-ui.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -40,8 +39,7 @@ export default {
   /*
   ** Nuxt.js modules
   */
-  modules: [
-  ],
+  modules: ['@vuecommerce/ui/nuxt'],
   /*
   ** Build configuration
   */

@@ -3,27 +3,39 @@
   "version": "0.0.1",
   "scripts": {
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/styles/ -o dist/css/",
-    "build": "vue-cli-service build --target lib --dest dist/js ./src/index.ts && yarn css-compile",
+    "build": "rollup -c scripts/rollup.config.js --environment BUILD:production",
     "dev": "vue-cli-service build --target lib --dest dist/js --watch ./src/index.ts",
     "storybook": "vue-cli-service storybook:serve"
   },
+  "main": "dist/vuecommerce-ui.common.js",
+  "module": "dist/vuecommerce-ui.es.js",
+  "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "nuxt",
+    "src"
   ],
-  "web": "dist/js/ui.umd.js",
-  "main": "dist/js/ui.common.js",
   "types": "src/types.d.ts",
   "dependencies": {
     "core-js": "^3.6.4",
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.1",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-sucrase": "^3.0.0",
+    "@rollup/plugin-typescript": "^3.0.0",
     "@storybook/vue": "^5.3.12",
     "@types/jest": "^25.1.2",
     "@vue/cli-plugin-babel": "^4.2.2",
     "@vue/cli-plugin-typescript": "^4.2.2",
     "@vue/cli-service": "^4.2.2",
     "node-sass": "^4.13.1",
+    "rollup": "^1.31.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-scss": "^2.1.0",
+    "rollup-plugin-vue": "^5.1.6",
     "sass-loader": "^8.0.2",
     "vue-cli-plugin-storybook": "^1.2.0",
     "vue-template-compiler": "^2.6.11"
