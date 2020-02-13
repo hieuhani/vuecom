@@ -1,4 +1,4 @@
-import { storiesOf } from "@storybook/vue";
+import { storiesOf } from "@storybook/vue"
 
 import VcButton from "./VcButton.vue";
 

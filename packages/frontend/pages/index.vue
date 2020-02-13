@@ -1,5 +1,7 @@
 <template>
-  <div class="container">
-    <nuxt-link to="/auth/sign_in">Sign In</nuxt-link>
+  <div>
+    <vc-container>
+      <vc-button variant="primary">Hello world</vc-button>
+    </vc-container>
   </div>
 </template>
