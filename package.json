@@ -5,7 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "lerna run --parallel dev"
+    "dev": "lerna run --parallel dev",
+    "dev:frontend": "lerna exec --scope=@vuecommerce/frontend -- yarn dev"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
