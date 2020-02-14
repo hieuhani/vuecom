@@ -14,6 +14,10 @@ const plugins = [
   }),
   scss({
     output: 'dist/vuecommerce-ui.css',
+    prefix: `@import "../../../styles/functions";
+             @import "../../../styles/variables";
+             @import "../../../styles/mixins";
+             @import "../../../styles/utilities";`
   }),
   commonjs(),
   typescript(),
