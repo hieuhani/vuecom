@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@vuecommerce/data-source": "0.0.1",
     "@vuecommerce/ui": "0.0.1",
     "nuxt": "^2.11.0"
   },

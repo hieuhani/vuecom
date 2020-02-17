@@ -1,0 +1,6 @@
+import Vue from 'vue'
+import VueApollo from 'vue-apollo'
+import VueFrontDataSource from '@vuecommerce/data-source'
+
+Vue.use(VueApollo)
+Vue.use(VueFrontDataSource, <%= JSON.stringify(options.vueFrontDataSource || {}, undefined, 2) %>)

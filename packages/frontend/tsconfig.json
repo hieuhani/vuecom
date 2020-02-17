@@ -24,7 +24,9 @@
     },
     "types": [
       "@types/node",
-      "@nuxt/types"
+      "@nuxt/types",
+      "@vuecommerce/data-source",
+      "vue-cli-plugin-apollo"
     ]
   },
   "exclude": [

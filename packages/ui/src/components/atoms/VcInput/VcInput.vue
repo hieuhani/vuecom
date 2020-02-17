@@ -3,10 +3,10 @@
     <label :for="name" v-if="label" class="vc-input__label">{{ label }}</label>
     <input
       :id="name"
-      v-bind="$attrs"
       :type="type"
+      :value="value"
       class="vc-input__input"
-      v-on="$listeners"
+      @input="e => $emit('input', e.target.value)"
     />
   </div>
 </template>

@@ -40,7 +40,10 @@ export default {
   /*
   ** Nuxt.js modules
   */
-  modules: ['@vuecommerce/ui/nuxt'],
+  modules: [
+    '@vuecommerce/ui/nuxt',
+    '@vuecommerce/data-source/dist/nuxt',
+  ],
   /*
   ** Build configuration
   */
@@ -50,5 +53,15 @@ export default {
     */
     extend (config, ctx) {
     },
-  }
+    transpile: [
+      '@vuecommerce/data-source',
+    ],
+  },
+  vueFrontDataSource: {
+    apolloClientConfigs: {
+      default: {
+        httpEndpoint: 'https://graphql.myshopify.com/api/2019-07/graphql.json',
+      },
+    },
+  },
 }

@@ -1,0 +1,21 @@
+{
+  "name": "@vuecommerce/data-source",
+  "version": "0.0.1",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "tsc -p tsconfig.json",
+    "postbuild": "copyfiles -f ./src/nuxt/plugin.template dist/nuxt"
+  },
+  "main": "dist/index.js",
+  "types": "src/types.d.ts",
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.6.5",
+    "graphql-tag": "^2.10.3",
+    "vue-apollo": "^3.0.3",
+    "vue-cli-plugin-apollo": "^0.21.3"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^0.6.1",
+    "copyfiles": "^2.2.0"
+  }
+}

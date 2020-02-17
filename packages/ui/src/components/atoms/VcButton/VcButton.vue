@@ -15,6 +15,10 @@ export default createComponent({
       type: Boolean,
       default: false,
     },
+    block: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     cssClasses() {
@@ -22,6 +26,9 @@ export default createComponent({
       if (this.variant) {
         const variantClass = this.outline ? `vc-button--outline-${this.variant}` : `vc-button--${this.variant}`
         modifierClasses.push(variantClass)
+      }
+      if (this.block) {
+        modifierClasses.push('vc-button--block')
       }
       return [
         'vc-button',
@@ -42,6 +49,10 @@ export default createComponent({
   text-align: center;
   white-space: $btn-white-space;
 
+  &--block {
+    width: 100%;
+    display: block;
+  }
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
 
   @each $color, $value in $theme-colors {
