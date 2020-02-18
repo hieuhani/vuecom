@@ -74,5 +74,6 @@ export default Vue.extend({
   display: flex;
   min-height: 300px;
   padding: 30px;
+  border-radius: $border-radius;
 }
 </style>
