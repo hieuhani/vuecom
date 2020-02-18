@@ -10,7 +10,9 @@
   "types": "src/types.d.ts",
   "dependencies": {
     "apollo-cache-inmemory": "^1.6.5",
+    "cross-fetch": "^3.0.4",
     "graphql-tag": "^2.10.3",
+    "universal-cookie": "^4.0.3",
     "vue-apollo": "^3.0.3",
     "vue-cli-plugin-apollo": "^0.21.3"
   },

@@ -61,6 +61,12 @@ export default {
     apolloClientConfigs: {
       default: {
         httpEndpoint: 'https://graphql.myshopify.com/api/2019-07/graphql.json',
+        httpLinkOptions: {
+          credentials: 'same-origin',
+          headers: {
+            'x-shopify-storefront-access-token': 'ecdc7f91ed0970e733268535c828fbbe'
+          },
+        },
       },
     },
   },

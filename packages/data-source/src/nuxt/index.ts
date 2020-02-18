@@ -1,4 +1,5 @@
 import path from 'path'
+import { VueApolloComponentOptions } from 'vue-apollo/types/options'
 import { Module, Configuration } from '@nuxt/types'
 import { ApolloClientConfig } from '../types'
 
@@ -7,6 +8,7 @@ export interface Options {
     default: ApolloClientConfig | string
     [key: string]: ApolloClientConfig | string
   },
+  defaultOptions?: VueApolloComponentOptions<any>,
 }
 
 interface ModuleThis {
@@ -15,16 +17,18 @@ interface ModuleThis {
 }
 
 const dataSourceModule: Module<Options> = function(this: ModuleThis, moduleOptions?: Options) {
-  const options = Object.assign(
+  if (!this.options.vueFrontDataSource && !moduleOptions) {
+    throw new Error('[Apollo module] No apolloClientConfigs found in apollo configuration')
+  }
+  const options: Options = Object.assign(
     this.options.vueFrontDataSource,
     moduleOptions,
-  )
+  )!
+
   this.addPlugin({
     src: path.resolve(__dirname, 'plugin.template'),
     fileName: 'vuecommerce-datasource.js',
-    options: {
-      vueFrontDataSource: options,
-    },
+    options,
   })
 }
 

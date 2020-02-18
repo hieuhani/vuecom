@@ -1,6 +1,107 @@
 import Vue from 'vue'
 import VueApollo from 'vue-apollo'
+import 'cross-fetch/polyfill'
 import VueFrontDataSource from '@vuecommerce/data-source'
+import Cookie from 'universal-cookie'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import { createApolloClient, restartWebsockets } from 'vue-cli-plugin-apollo/graphql-client'
 
 Vue.use(VueApollo)
 Vue.use(VueFrontDataSource, <%= JSON.stringify(options.vueFrontDataSource || {}, undefined, 2) %>)
+
+export default (ctx, inject) => {
+  const providerOptions = { clients: {} }
+  const { app, beforeNuxtRender, req } = ctx
+  const cookies = new Cookie(req && req.headers.cookie)
+  const onCacheInitStore = { }
+
+<% Object.keys(options.apolloClientConfigs).forEach((key) => { %>
+  const <%= key %>TokenName = '<%= options.apolloClientConfigs[key].tokenName %>' || 'apollo-default-token'
+  const <%= key %>ClientConfig = <%= JSON.stringify(options.apolloClientConfigs[key], null, 2) %>
+
+  function <%= key %>GetAuth () {
+    const token = cookies.get(<%= key %>TokenName)
+    return token && <%= key %>ClientConfig.validateToken(token) ? 'Bearer ' + token : ''
+  }
+
+  if (process.server) {
+    onCacheInitStore['<%= key %>'] = <%= key %>ClientConfig.onCacheInit
+    <%= key %>ClientConfig.onCacheInit = null
+  }
+
+  if (!<%= key %>ClientConfig.validateToken) {
+    <%= key %>ClientConfig.validateToken = () => true
+  }
+
+  const <%= key %>Cache = <%= key %>ClientConfig.cache
+    ? <%= key %>ClientConfig.cache
+    : new InMemoryCache(<%= key %>ClientConfig.inMemoryCacheOptions ? <%= key %>ClientConfig.inMemoryCacheOptions: undefined)
+
+  if (!process.server) {
+    <%= key %>Cache.restore(window.__NUXT__ ? window.__NUXT__.apollo.<%= key === 'default' ? 'defaultClient' : key %> : null)
+  }
+
+  if (!<%= key %>ClientConfig.getAuth) {
+    <%= key %>ClientConfig.getAuth = <%= key %>GetAuth
+  }
+
+  if (process.client && <%= key %>ClientConfig.browserHttpEndpoint) {
+    <%= key %>ClientConfig.httpEndpoint = <%= key %>ClientConfig.browserHttpEndpoint
+  }
+
+  <%= key %>ClientConfig.ssr = !!process.server
+  <%= key %>ClientConfig.cache = <%= key %>Cache
+  <%= key %>ClientConfig.tokenName = <%= key %>TokenName
+
+  // if ssr we'd still like to have our webclient's cookies
+  if (process.server && req && req.headers && req.headers.cookie) {
+    if (!<%= key %>ClientConfig.httpLinkOptions) {
+      <%= key %>ClientConfig.httpLinkOptions = {}
+    }
+    if (!<%= key %>ClientConfig.httpLinkOptions.headers) {
+      <%= key %>ClientConfig.httpLinkOptions.headers = {}
+    }
+    <%= key %>ClientConfig.httpLinkOptions.headers.cookie = req.headers.cookie
+  }
+
+  // Create apollo client
+  let <%= key %>ApolloCreation = createApolloClient({
+    ...<%= key %>ClientConfig
+  })
+  <%= key %>ApolloCreation.apolloClient.wsClient = <%= key %>ApolloCreation.wsClient
+
+  <% if (key === 'default') { %>
+      providerOptions.<%= key %>Client = <%= key %>ApolloCreation.apolloClient
+  <% } else { %>
+      providerOptions.clients.<%= key %> = <%= key %>ApolloCreation.apolloClient
+  <% } %>
+<% }) %>
+
+  const vueApolloOptions = Object.assign(providerOptions, {
+    <% if (options.defaultOptions) { %>
+      defaultOptions: <%= JSON.stringify(options.defaultOptions) %>,
+    <% } %>
+  })
+
+  const apolloProvider = new VueApollo(vueApolloOptions)
+  // Allow access to the provider in the context
+  app.apolloProvider = apolloProvider
+
+  if (process.server) {
+    const ApolloSSR = require('vue-apollo/ssr')
+    beforeNuxtRender(({ nuxtState }) => {
+      nuxtState.apollo = ApolloSSR.getStates(apolloProvider)
+      // Clear apollo client cache after each request
+      // Issues: https://github.com/nuxt-community/apollo-module/issues/273
+      //         https://github.com/nuxt-community/apollo-module/issues/251
+      Object.keys(apolloProvider.clients).forEach(clientName => {
+        const client = apolloProvider.clients[clientName]
+        const onCacheInitKey = clientName === 'defaultClient' ? 'default' : clientName
+        const onCacheInit = onCacheInitStore[onCacheInitKey]
+        client.cache.reset()
+        if (typeof onCacheInit === 'function') onCacheInit(client.cache)
+      })
+    })
+  }
+}
+
