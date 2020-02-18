@@ -6,6 +6,8 @@ import { VcNav, VcNavItem } from './components/molecules/VcNav'
 import VcSearch from './components/molecules/VcSearch'
 import VcNavBar from './components/organisms/VcNavBar'
 
+import { VcBanner } from './components/molecules'
+
 const components = [
   VcButton,
   VcInput,
@@ -15,12 +17,17 @@ const components = [
   VcNavItem,
   VcSearch,
   VcNavBar,
+  VcBanner,
 ]
 
 const Vuecommerce = {
   install(Vue: any, options: any = {}) {
     ;(options.components || components).forEach((component: any) => {
-      Vue.component(component.name, component)
+      let componentName = component.name
+      if (!componentName || (componentName && componentName === 'VueComponent')) {
+        componentName = component.extendOptions.name
+      }
+      Vue.component(componentName, component)
     })
   },
 }
@@ -38,6 +45,7 @@ export {
   VcNavItem,
   VcSearch,
   VcNavBar,
+  VcBanner,
   Vuecommerce,
 }
 

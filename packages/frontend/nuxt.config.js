@@ -55,6 +55,7 @@ export default {
     },
     transpile: [
       '@vuecommerce/data-source',
+      '@vuecommerce/ui',
     ],
   },
   vueFrontDataSource: {

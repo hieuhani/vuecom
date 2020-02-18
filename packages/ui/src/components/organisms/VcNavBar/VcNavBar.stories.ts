@@ -4,7 +4,7 @@ import VcNavBar from './VcNavBar.vue'
 import { VcNavItem, VcNav } from '../../molecules/VcNav'
 import VcButton from '../../atoms/VcButton'
 
-storiesOf("Organisms|VcNavigation", module)
+storiesOf("Organisms/VcNavigation", module)
   .add("Default", () => ({
     components: {
       VcNavBar,

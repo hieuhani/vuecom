@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import VcNav from './VcNav.vue'
 import VcNavItem from './VcNavItem.vue'
 
-storiesOf('Molecules|VcNav', module)
+storiesOf('Molecules/VcNav', module)
   .add('Default', () => ({
     components: {
       VcNav,

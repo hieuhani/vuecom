@@ -2,7 +2,7 @@ import { storiesOf } from "@storybook/vue"
 
 import VcButton from "./VcButton.vue";
 
-storiesOf("Atoms|VcButton", module)
+storiesOf("Atoms/VcButton", module)
   .add("Variant", () => ({
     components: {
       VcButton,

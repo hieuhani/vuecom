@@ -5,7 +5,6 @@
     "build": "bash scripts/build.sh",
     "dev": "vue-cli-service storybook:serve"
   },
-  "main": "dist/vuecommerce-ui.common.js",
   "module": "dist/vuecommerce-ui.es.js",
   "sideEffects": false,
   "files": [

@@ -2,7 +2,7 @@ import { storiesOf } from "@storybook/vue";
 
 import VcInput from "./VcInput.vue";
 
-storiesOf("Atoms|VcInput", module)
+storiesOf("Atoms/VcInput", module)
   .add("Default", () => ({
     components: {
       VcInput,
