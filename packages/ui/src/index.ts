@@ -7,7 +7,7 @@ import VcSearch from './components/molecules/VcSearch'
 import VcNavBar from './components/organisms/VcNavBar'
 
 import { VcBanner } from './components/molecules'
-import { VcBannerGrid } from './components/organisms'
+import { VcBannerGrid, VcCarousel, VcCarouselItem } from './components/organisms'
 
 const components = [
   VcButton,
@@ -20,6 +20,8 @@ const components = [
   VcNavBar,
   VcBanner,
   VcBannerGrid,
+  VcCarousel,
+  VcCarouselItem,
 ]
 
 const Vuecommerce = {
@@ -49,6 +51,8 @@ export {
   VcNavBar,
   VcBanner,
   VcBannerGrid,
+  VcCarousel,
+  VcCarouselItem,
   Vuecommerce,
 }
 

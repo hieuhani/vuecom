@@ -3,14 +3,12 @@
     <div class="swiper-wrapper">
       <slot />
     </div>
-    <div class="swiper-pagination"></div>
+    <div v-if="hasPagination" class="swiper-pagination"></div>
 
-    <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div v-if="hasNavigation" class="swiper-button-prev"></div>
+    <div v-if="hasNavigation" class="swiper-button-next"></div>
 
-    <!-- If we need scrollbar -->
-    <div class="swiper-scrollbar"></div>
+    <div v-if="hasScrollbar" class="swiper-scrollbar"></div>
   </div>
 </template>
 
@@ -19,6 +17,21 @@ import Vue from 'vue'
 import Swiper from 'swiper'
 
 export default Vue.extend({
+  name: 'VcCarousel',
+  props: {
+    hasNavigation: {
+      type: Boolean,
+      default: false,
+    },
+    hasScrollbar: {
+      type: Boolean,
+      default: false,
+    },
+    hasPagination: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       swiper: null,
@@ -26,22 +39,24 @@ export default Vue.extend({
   },
   mounted() {
     this.$nextTick(() => {
-      const swiper = new Swiper(this.$refs.swiper, {
-        pagination: {
+      const options: any = {}
+      if (this.hasPagination) {
+        options.pagination = {
           el: '.swiper-pagination',
-        },
-
-        // Navigation arrows
-        navigation: {
+        }
+      }
+      if (this.hasNavigation) {
+        options.navigation = {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
-        },
-
-        // And if we need scrollbar
-        scrollbar: {
+        }
+      }
+      if (this.hasScrollbar) {
+        options.scrollbar = {
           el: '.swiper-scrollbar',
-        },
-      })
+        }
+      }
+      const swiper = new Swiper(this.$refs.swiper, options)
       this.swiper = swiper
     })
   },

@@ -12,15 +12,15 @@ storiesOf('Organisms/VcCarousel', module)
   .add('Default', () => ({
     components: {
       VcCarousel,
-      VcCarouselItem,
       SlidePlaceholder,
+      VcCarouselItem,
     },
     template: `
     <div>
       <vc-carousel>
-        <vc-carousel-item v-for="index in 6" :key="index">
+        <VcCarouselItem v-for="index in 6" :key="index">
           <SlidePlaceholder :index="index" />
-        </vc-carousel-item>
+        </VcCarouselItem>
       </vc-carousel>
     </div>
     `
