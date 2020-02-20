@@ -61,4 +61,41 @@ export default class VuefrontGraphQL<V> {
       `
     })
   }
+
+  async queryProducts() {
+    const vm: any = this.vm
+    return await vm.$apollo.query({
+      query: gql`
+      {
+        products(first:8) {
+          edges {
+            node {
+              id
+              handle
+              title
+              priceRange {
+                maxVariantPrice {
+                  amount
+                  currencyCode
+                }
+                minVariantPrice {
+                  amount
+                  currencyCode
+                }
+              }
+              images(first: 1) {
+                edges {
+                  node {
+                    id
+                    originalSrc
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      `
+    })
+  }
 }

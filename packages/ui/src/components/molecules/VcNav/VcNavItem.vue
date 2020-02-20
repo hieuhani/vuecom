@@ -7,10 +7,10 @@
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import Vue from 'vue'
 import { VcLink } from '../../atoms/VcLink'
 
-export default createComponent({
+export default Vue.extend({
   name: 'VcNavItem',
   components: {
     VcLink,

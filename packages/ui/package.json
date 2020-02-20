@@ -16,8 +16,9 @@
   "dependencies": {
     "@vue/composition-api": "^0.3.4",
     "core-js": "^3.6.4",
+    "rollup-plugin-alias": "^2.2.0",
     "swiper": "^5.3.1",
-    "vue": "^2.6.11"
+    "vue-functional-data-merge": "^3.1.0"
   },
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.1",
@@ -38,5 +39,8 @@
     "sass-loader": "^8.0.2",
     "vue-cli-plugin-storybook": "^1.2.0",
     "vue-template-compiler": "^2.6.11"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.11"
   }
 }

@@ -5,14 +5,26 @@ import VcLink from './components/atoms/VcLink'
 import { VcNav, VcNavItem } from './components/molecules/VcNav'
 import VcSearch from './components/molecules/VcSearch'
 import VcNavBar from './components/organisms/VcNavBar'
-
+import { setCurrentVue, currentVue } from './runtimeContext'
+import { assert } from './utils'
+import {
+  VcRow,
+  VcCol,
+} from './components/atoms'
 import { VcBanner } from './components/molecules'
-import { VcBannerGrid, VcCarousel, VcCarouselItem } from './components/organisms'
+import {
+  VcBannerGrid,
+  VcCarousel,
+  VcCarouselItem,
+  VcProductCard,
+} from './components/organisms'
 
 const components = [
   VcButton,
   VcInput,
   VcContainer,
+  VcRow,
+  VcCol,
   VcLink,
   VcNav,
   VcNavItem,
@@ -22,10 +34,17 @@ const components = [
   VcBannerGrid,
   VcCarousel,
   VcCarouselItem,
+  VcProductCard,
 ]
 
 const Vuecommerce = {
   install(Vue: any, options: any = {}) {
+    if (currentVue && currentVue === Vue) {
+      if (process.env.NODE_ENV !== 'production') {
+        assert(false, 'already installed. Vue.use(plugin) should be called only once')
+      }
+      return
+    }
     ;(options.components || components).forEach((component: any) => {
       let componentName = component.name
       if (!componentName || (componentName && componentName === 'VueComponent')) {
@@ -33,6 +52,7 @@ const Vuecommerce = {
       }
       Vue.component(componentName, component)
     })
+    setCurrentVue(Vue)
   },
 }
 
@@ -44,6 +64,8 @@ export {
   VcButton,
   VcInput,
   VcContainer,
+  VcRow,
+  VcCol,
   VcLink,
   VcNav,
   VcNavItem,
@@ -53,6 +75,7 @@ export {
   VcBannerGrid,
   VcCarousel,
   VcCarouselItem,
+  VcProductCard,
   Vuecommerce,
 }
 

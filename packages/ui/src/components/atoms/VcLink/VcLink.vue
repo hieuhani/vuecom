@@ -8,9 +8,9 @@
 </template>
 
 <script lang="ts">
-import { createComponent } from '@vue/composition-api'
+import Vue from 'vue'
 
-export default createComponent({
+export default Vue.extend({
   name: 'VcLink',
   props: {
     to: {
@@ -23,7 +23,7 @@ export default createComponent({
   computed: {
     tag() {
       if (this.to) {
-        return this.$nuxt ? 'nuxt-link' : 'router-link'
+        return (this as any).$nuxt ? 'nuxt-link' : 'router-link'
       }
       return 'a'
     },
