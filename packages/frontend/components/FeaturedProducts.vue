@@ -1,11 +1,11 @@
 <template>
-  <vc-container>
+  <vc-container class="featured-products">
     <vc-row>
       <vc-col
         v-for="product in products"
         :key="product.id"
+        md="3"
       >
-        <a :to="`/products/${product.handle}`">{{ product.title }}</a>
         <vc-product-card
           :to="`/products/${product.handle}`"
           :title="product.title"
@@ -40,3 +40,15 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss">
+.featured-products {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  .vc-product-card {
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+</style>
