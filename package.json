@@ -1,15 +1,15 @@
 {
-  "name": "vuecommerce",
+  "name": "vuecom",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
     "dev": "lerna run --parallel dev",
-    "dev:frontend": "lerna exec --scope=@vuecommerce/frontend -- yarn dev",
-    "dev:ui": "lerna exec --scope=@vuecommerce/ui -- yarn dev",
-    "build:ui": "lerna exec --scope=@vuecommerce/ui -- yarn build",
-    "build:data-source": "lerna exec --scope=@vuecommerce/data-source -- yarn build"
+    "dev:frontend": "lerna exec --scope=@vuecom/frontend -- yarn dev",
+    "dev:ui": "lerna exec --scope=@vuecom/ui -- yarn dev",
+    "build:ui": "lerna exec --scope=@vuecom/ui -- yarn build",
+    "build:data-source": "lerna exec --scope=@vuecom/data-source -- yarn build"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",

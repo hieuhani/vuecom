@@ -18,7 +18,7 @@ const baseConfig = {
   plugins: [
     resolve({ external: ['vue'] }),
     scss({
-      output: 'dist/vuecommerce-ui.css',
+      output: 'dist/vuecom-ui.css',
       prefix: `@import "../../../styles/functions";
                @import "../../../styles/variables";
                @import "../../../styles/mixins";
@@ -44,7 +44,7 @@ export default [
     ...baseConfig,
     output: {
       format: 'es',
-      file: resolv('dist/vuecommerce-ui.es.js'),
+      file: resolv('dist/vuecom-ui.es.js'),
       sourcemap: true
     }
   }

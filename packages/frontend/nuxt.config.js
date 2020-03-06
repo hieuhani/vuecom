@@ -5,7 +5,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: 'Vuecommerce',
+    title: 'vuecom',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -23,8 +23,8 @@ export default {
   ** Global CSS
   */
   css: [
-    '@vuecommerce/ui/dist/css-reset.css',
-    '@vuecommerce/ui/dist/vuecommerce-ui.css'
+    '@vuecom/ui/dist/css-reset.css',
+    '@vuecom/ui/dist/vuecom-ui.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -41,8 +41,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@vuecommerce/ui/nuxt',
-    '@vuecommerce/data-source/dist/nuxt',
+    '@vuecom/ui/nuxt',
+    '@vuecom/data-source/dist/nuxt',
   ],
   /*
   ** Build configuration
@@ -54,11 +54,11 @@ export default {
     extend (config, ctx) {
     },
     transpile: [
-      '@vuecommerce/data-source',
-      '@vuecommerce/ui',
+      '@vuecom/data-source',
+      '@vuecom/ui',
     ],
   },
-  vueFrontDataSource: {
+  vuecomDataSource: {
     apolloClientConfigs: {
       default: {
         httpEndpoint: 'https://graphql.myshopify.com/api/2019-07/graphql.json',

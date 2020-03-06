@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import { CombinedVueInstance } from 'vue/types/vue'
 import { ApolloClientClientConfig } from 'vue-cli-plugin-apollo/graphql-client'
-import VuefrontGraphQL from './vuefront-graphql'
-import VueFrontDataSource from './index'
+import VuecomGraphQL from './vuecom-graphql'
+import VuecomDataSource from './index'
 
 
 export interface ApolloClientConfig extends ApolloClientClientConfig<any> {
@@ -10,15 +10,15 @@ export interface ApolloClientConfig extends ApolloClientClientConfig<any> {
   websocketsOnly?: boolean
 }
 
-export interface VuefrontDataSourceOptions {
+export interface VuecomDataSourceOptions {
 
 }
 
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $vueFrontDataSource: VuefrontGraphQL<this>
+    $vuecomDataSource: VuecomGraphQL<this>
   }
 }
 
-export default VueFrontDataSource
+export default VuecomDataSource

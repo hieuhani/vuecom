@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import VueApollo from 'vue-apollo'
 import 'cross-fetch/polyfill'
-import VueFrontDataSource from '@vuecommerce/data-source'
+import VuecomDataSource from '@vuecom/data-source'
 import Cookie from 'universal-cookie'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { createApolloClient, restartWebsockets } from 'vue-cli-plugin-apollo/graphql-client'
 
 Vue.use(VueApollo)
-Vue.use(VueFrontDataSource, <%= JSON.stringify(options.vueFrontDataSource || {}, undefined, 2) %>)
+Vue.use(VuecomDataSource, <%= JSON.stringify(options.vuecomDataSource || {}, undefined, 2) %>)
 
 export default (ctx, inject) => {
   const providerOptions = { clients: {} }

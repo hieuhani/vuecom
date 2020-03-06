@@ -1,18 +1,17 @@
 import { VueConstructor } from 'vue'
-import { VuefrontDataSourceOptions } from './types'
-import VuefrontGraphQL from './vuefront-graphql'
+import { VuecomDataSourceOptions } from './types'
+import VuecomGraphQL from './vuecom-graphql'
 
 
-export class VueFrontDataSource {
-  static install = function install(Vue: VueConstructor, options: VuefrontDataSourceOptions)  {
-    console.log(options)
-    if (!Vue.prototype.$vueFrontDataSource) {
-      Object.defineProperty(Vue.prototype, '$vueFrontDataSource', {
+export class VuecomDataSource {
+  static install = function install(Vue: VueConstructor, options: VuecomDataSourceOptions)  {
+    if (!Vue.prototype.$vuecomDataSource) {
+      Object.defineProperty(Vue.prototype, '$vuecomDataSource', {
         get() {
-          if (!this.$_vueFrontDataSource) {
-            this.$_vueFrontDataSource = new VuefrontGraphQL(this)
+          if (!this.$_vuecomDataSource) {
+            this.$_vuecomDataSource = new VuecomGraphQL(this)
           }
-          return this.$_vueFrontDataSource
+          return this.$_vuecomDataSource
         },
       });
     }
@@ -21,8 +20,8 @@ export class VueFrontDataSource {
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(VueFrontDataSource)
+  window.Vue.use(VuecomDataSource)
 }
 
 
-export default VueFrontDataSource
+export default VuecomDataSource

@@ -1,17 +1,17 @@
 import Vue from 'vue'
 
-<% if (options.vuecommerce.components) { %>
+<% if (options.vuecom.components) { %>
 import {
-  Vuecommerce,
-  <%= options.vuecommerce.components.join(',\n    ') %>
-} from '@vuecommerce/ui';
+  Vuecom,
+  <%= options.vuecom.components.join(',\n    ') %>
+} from '@vuecom/ui';
 
-Vue.use(Vuecommerce, {
+Vue.use(Vuecom, {
   components: [
-    <%= options.vuecommerce.components.join(',\n        ') %>
+    <%= options.vuecom.components.join(',\n        ') %>
   ]
 });
 <% } else { %>
-import Vuecommerce from '@vuecommerce/ui';
-Vue.use(Vuecommerce, <%= JSON.stringify(options.vuecommerce ? options.vuecommerce : {}, undefined, 4) %>);
+import Vuecom from '@vuecom/ui';
+Vue.use(Vuecom, <%= JSON.stringify(options.vuecom ? options.vuecom : {}, undefined, 4) %>);
 <% } %>

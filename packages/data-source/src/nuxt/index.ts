@@ -17,24 +17,24 @@ interface ModuleThis {
 }
 
 const dataSourceModule: Module<Options> = function(this: ModuleThis, moduleOptions?: Options) {
-  if (!this.options.vueFrontDataSource && !moduleOptions) {
+  if (!this.options.vuecomDataSource && !moduleOptions) {
     throw new Error('[Apollo module] No apolloClientConfigs found in apollo configuration')
   }
   const options: Options = Object.assign(
-    this.options.vueFrontDataSource,
+    this.options.vuecomDataSource,
     moduleOptions,
   )!
 
   this.addPlugin({
     src: path.resolve(__dirname, 'plugin.template'),
-    fileName: 'vuecommerce-datasource.js',
+    fileName: 'vuecom-datasource.js',
     options,
   })
 }
 
 declare module '@nuxt/types' {
   interface Configuration {
-    vueFrontDataSource?: Options
+    vuecomDataSource?: Options
   }
 }
 

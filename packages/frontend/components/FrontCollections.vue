@@ -38,7 +38,7 @@ export default Vue.extend({
     }
   },
   async mounted() {
-    const { data } = await this.$vueFrontDataSource.queryCollections()
+    const { data } = await this.$vuecomDataSource.queryCollections()
     this.collections = data.collections.edges.map(({ node }: any) => node)
   },
 })

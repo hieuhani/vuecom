@@ -1,6 +1,6 @@
 import gql from 'graphql-tag'
 
-export default class VuefrontGraphQL<V> {
+export default class VuecomGraphQL<V> {
   vm: V
 
   constructor(vm: V) {

@@ -37,7 +37,7 @@ const components = [
   VcProductCard,
 ]
 
-const Vuecommerce = {
+const Vuecom = {
   install(Vue: any, options: any = {}) {
     if (currentVue && currentVue === Vue) {
       if (process.env.NODE_ENV !== 'production') {
@@ -57,7 +57,7 @@ const Vuecommerce = {
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(Vuecommerce)
+  window.Vue.use(Vuecom)
 }
 
 export {
@@ -76,7 +76,7 @@ export {
   VcCarousel,
   VcCarouselItem,
   VcProductCard,
-  Vuecommerce,
+  Vuecom,
 }
 
-export default Vuecommerce
+export default Vuecom

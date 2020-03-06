@@ -1,11 +1,11 @@
 {
-  "name": "@vuecommerce/ui",
+  "name": "@vuecom/ui",
   "version": "0.0.1",
   "scripts": {
     "build": "bash scripts/build.sh",
     "dev": "vue-cli-service storybook:serve"
   },
-  "module": "dist/vuecommerce-ui.es.js",
+  "module": "dist/vuecom-ui.es.js",
   "sideEffects": false,
   "files": [
     "dist",

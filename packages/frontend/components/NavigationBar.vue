@@ -43,7 +43,7 @@ export default Vue.extend({
     }
   },
   async mounted() {
-    const { data } = await this.$vueFrontDataSource.queryShop()
+    const { data } = await this.$vuecomDataSource.queryShop()
     this.shop = data.shop
   },
 })

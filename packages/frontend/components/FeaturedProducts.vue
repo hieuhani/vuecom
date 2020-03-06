@@ -27,7 +27,7 @@ export default Vue.extend({
     }
   },
   async mounted() {
-    const { data } = await this.$vueFrontDataSource.queryProducts()
+    const { data } = await this.$vuecomDataSource.queryProducts()
     this.products = data.products.edges.map(({ node }: any) => {
       return {
         id: node.id,
