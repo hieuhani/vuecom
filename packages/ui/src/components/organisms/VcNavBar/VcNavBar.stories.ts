@@ -15,7 +15,7 @@ storiesOf("Organisms/VcNavigation", module)
     template: `
     <div>
       <vc-nav-bar>
-        <div class="mr-auto">Vuefront</div>
+        <div class="mr-auto">Vuecom</div>
         <vc-nav>
           <vc-nav-item href="#orange">
             Orange

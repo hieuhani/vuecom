@@ -23,8 +23,6 @@ export default {
   ** Global CSS
   */
   css: [
-    '@vuecom/ui/dist/css-reset.css',
-    '@vuecom/ui/dist/vuecom-ui.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -43,6 +41,7 @@ export default {
   modules: [
     '@vuecom/ui/nuxt',
     '@vuecom/data-source/dist/nuxt',
+    '@nuxtjs/style-resources',
   ],
   /*
   ** Build configuration
@@ -70,5 +69,8 @@ export default {
         },
       },
     },
+  },
+  vuecomUi: {
+    vuecomUiScss: '~/assets/overrided_variables.scss',
   },
 }

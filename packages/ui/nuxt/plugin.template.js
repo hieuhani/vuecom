@@ -1,17 +1,17 @@
 import Vue from 'vue'
 
-<% if (options.vuecom.components) { %>
+<% if (options.vuecomUi.components) { %>
 import {
   Vuecom,
-  <%= options.vuecom.components.join(',\n    ') %>
+  <%= options.vuecomUi.components.join(',\n    ') %>
 } from '@vuecom/ui';
 
 Vue.use(Vuecom, {
   components: [
-    <%= options.vuecom.components.join(',\n        ') %>
+    <%= options.vuecomUi.components.join(',\n        ') %>
   ]
 });
 <% } else { %>
 import Vuecom from '@vuecom/ui';
-Vue.use(Vuecom, <%= JSON.stringify(options.vuecom ? options.vuecom : {}, undefined, 4) %>);
+Vue.use(Vuecom, <%= JSON.stringify(options.vuecomUi ? options.vuecomUi : {}, undefined, 4) %>);
 <% } %>

@@ -1,6 +1,7 @@
 import path from 'path'
 import scss from 'rollup-plugin-scss'
 import resolve from '@rollup/plugin-node-resolve'
+import bundleScss from 'rollup-plugin-bundle-scss';
 import commonjs from '@rollup/plugin-commonjs'
 import vue from 'rollup-plugin-vue'
 import buble from '@rollup/plugin-buble'
@@ -26,6 +27,9 @@ const baseConfig = {
     }),
     commonjs(),
     typescript(),
+    bundleScss({
+      output: 'vuecom-ui.scss',
+    }),
     vue({
       css: false,
       data: {

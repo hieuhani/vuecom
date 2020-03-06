@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/style-resources": "^1.0.0",
     "@vuecom/data-source": "0.0.1",
     "@vuecom/ui": "0.0.1",
     "nuxt": "^2.11.0"
