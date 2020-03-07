@@ -22,7 +22,7 @@ export default createComponent({
       default: null
     },
     value: {
-      type: String,
+      type: [String, Number],
       default: null,
     },
     label: {

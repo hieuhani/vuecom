@@ -2,7 +2,7 @@
   <a v-if="tag === 'a'" :href="href" :class="cssClasses">
     <slot />
   </a>
-  <component v-else :is="tag" :to="to">
+  <component v-else :is="tag" :to="to" :class="cssClasses">
     <slot />
   </component>
 </template>

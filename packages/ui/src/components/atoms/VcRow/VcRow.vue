@@ -1,5 +1,5 @@
 <template>
-  <div class="vc-row">
+  <div :class="cssClasses">
     <slot />
   </div>
 </template>
@@ -16,7 +16,7 @@ export default Vue.extend({
   },
   computed: {
     cssClasses() {
-      const classes: string[] = []
+      const classes: string[] = ['vc-row']
       if (this.noGutter) {
         classes.push('vc-row--no-gutter')
       }

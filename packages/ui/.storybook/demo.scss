@@ -1,0 +1,77 @@
+.story-vc-single-column {
+  .vc-single-column {
+    > div {
+      border: 2px dashed #CCC;
+      border-bottom-width: 0;
+      &:last-child {
+        border-bottom-width: 2px;
+      }
+      padding: 1rem;
+    }
+    &__body {
+      height: 200px;
+    }
+  }
+}
+
+.story-vc-blog-layout {
+  .vc-blog-layout {
+    &__header {
+      border: 2px dashed #CCC;
+      padding: 1rem;
+    }
+    &__main, &__sidebar {
+      border: 2px dashed #CCC;
+      border-top-width: 0;
+      padding: 1rem;
+      min-height: 400px;
+    }
+    &__main {
+      border-right-width: 0;
+    }
+  }
+}
+
+.story-vc-bricks {
+  .vc-bricks {
+    &__a1, &__a2, &__b1, &__b2 {
+      min-height: 200px;
+      border: 2px dashed #CCC;
+      padding: 1rem;
+    }
+    &__a1 {
+      border-right-width: 0;
+      border-bottom-width: 0;
+    }
+    &__a2 {
+      border-bottom-width: 0;
+    }
+    &__b1 {
+      border-right-width: 0;
+    }
+  }
+}
+
+.story-vc-mix {
+  .vc-mix {
+    &__a, &__b1 {
+      min-height: 300px;
+    }
+    &__a, &__b1, &__b2-1, &__b2-2 {
+      border: 2px dashed #CCC;
+      padding: 1rem;
+    }
+    &__a {
+      border-bottom-width: 0;
+    }
+    &__b1 {
+      border-right-width: 0;
+    }
+    &__b2-1, &__b2-2 {
+      min-height: 150px;
+    }
+    &__b2-1 {
+      border-bottom-width: 0;
+    }
+  }
+}

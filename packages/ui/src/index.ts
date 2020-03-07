@@ -1,6 +1,6 @@
 import VcButton from './components/atoms/VcButton/VcButton.vue'
 import VcInput from './components/atoms/VcInput/VcInput.vue'
-import VcContainer from './components/atoms/VcContainer/VcContainer.vue'
+import { VcContainer } from './components/atoms/VcContainer'
 import VcLink from './components/atoms/VcLink'
 import { VcNav, VcNavItem } from './components/molecules/VcNav'
 import VcSearch from './components/molecules/VcSearch'
