@@ -2,14 +2,16 @@ import { storiesOf } from '@storybook/vue'
 
 import VcDropdown from './VcDropdown.vue'
 import { VcDropdownMenu } from '../VcDropdownMenu'
+import { VcDropdownItem } from '../VcDropdownItem'
 import VcButton from '../../atoms/VcButton'
 
 storiesOf('Molecules/VcDropdown', module)
   .add('Default', () => ({
     components: {
-      VcDropdown,
       VcButton,
+      VcDropdown,
       VcDropdownMenu,
+      VcDropdownItem,
     },
     template: `
     <div>
@@ -18,7 +20,15 @@ storiesOf('Molecules/VcDropdown', module)
           Dropdown
         </vc-button>
         <vc-dropdown-menu>
-          Content in dropdown hahaha
+          <vc-dropdown-item>
+            Banana
+          </vc-dropdown-item>
+          <vc-dropdown-item>
+            Orange
+          </vc-dropdown-item>
+          <vc-dropdown-item>
+            Mango
+          </vc-dropdown-item>
         </vc-dropdown-menu>
       </vc-dropdown>
     </div>
