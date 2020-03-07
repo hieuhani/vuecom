@@ -16,6 +16,8 @@ import {
   VcTable,
   VcTableBody,
   VcTableHead,
+  VcDropdown,
+  VcDropdownMenu,
 } from './components/molecules'
 import {
   VcBannerGrid,
@@ -43,6 +45,8 @@ const components = [
   VcTable,
   VcTableBody,
   VcTableHead,
+  VcDropdown,
+  VcDropdownMenu,
 ]
 
 const Vuecom = {
@@ -87,6 +91,8 @@ export {
   VcTable,
   VcTableBody,
   VcTableHead,
+  VcDropdown,
+  VcDropdownMenu,
 }
 
 export default Vuecom

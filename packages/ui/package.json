@@ -17,9 +17,11 @@
     "@storybook/vue": "^5.3.14",
     "@vue/composition-api": "^0.3.4",
     "core-js": "^3.6.4",
+    "popper.js": "^1.16.1",
     "rollup-plugin-alias": "^2.2.0",
     "swiper": "^5.3.1",
-    "vue-functional-data-merge": "^3.1.0"
+    "vue-functional-data-merge": "^3.1.0",
+    "vue-typed-mixins": "^0.2.0"
   },
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.1",

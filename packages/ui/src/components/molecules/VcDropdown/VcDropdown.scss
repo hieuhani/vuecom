@@ -1,0 +1,13 @@
+.vc-dropdown {
+  display: inline-block;
+  position: relative;
+
+  > *:first-child {
+      cursor: pointer;
+  }
+
+  > .menu .vc-dropdown {
+      width: 100%;
+      display: block;
+  }
+}
