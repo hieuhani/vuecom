@@ -11,7 +11,12 @@ import {
   VcRow,
   VcCol,
 } from './components/atoms'
-import { VcBanner } from './components/molecules'
+import {
+  VcBanner,
+  VcTable,
+  VcTableBody,
+  VcTableHead,
+} from './components/molecules'
 import {
   VcBannerGrid,
   VcCarousel,
@@ -35,6 +40,9 @@ const components = [
   VcCarousel,
   VcCarouselItem,
   VcProductCard,
+  VcTable,
+  VcTableBody,
+  VcTableHead,
 ]
 
 const Vuecom = {
@@ -76,7 +84,9 @@ export {
   VcCarousel,
   VcCarouselItem,
   VcProductCard,
-  Vuecom,
+  VcTable,
+  VcTableBody,
+  VcTableHead,
 }
 
 export default Vuecom

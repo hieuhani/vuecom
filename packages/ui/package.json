@@ -14,6 +14,7 @@
   ],
   "types": "src/types.d.ts",
   "dependencies": {
+    "@storybook/vue": "^5.3.14",
     "@vue/composition-api": "^0.3.4",
     "core-js": "^3.6.4",
     "rollup-plugin-alias": "^2.2.0",
